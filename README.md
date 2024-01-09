@@ -21,14 +21,23 @@ SwiftUI_MJPG-streamer is the code that connects MJPG-streamer running on Debian 
 ### IDE
 - Xcode 15.1
 
-## How to Use
+## Usage
 1. Run MJPG-streamer on Debian
 2. Open the app and input the IP address.
 i.g. 192.168.0.25
-3. Tap the Connect, and press the save button at your timing while it is displaying the stream.
-4. Then the snapshot will be saved in Photos App.
 
-<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/80d58c1a-fdaa-4826-83db-25f11e1ced41" width="20%" />
-<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/8bfbfc15-7dda-41f6-88c5-7a1654ad17fb" width="20%" />
-<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/4a6a6776-9c83-4c6b-9aa2-9fe29a63f3ad" width="20%" />
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/2c1811ab-ead0-45bf-a96e-e8b5afe5628a" width="20%" />
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/db8e69d3-de82-44c3-b8e4-e56099964c4e" width="20%" />
+
+3. Tap the Connect. Then the stream will be shown if accessing to the page succeeds. 
+
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/fce68267-c8d0-4293-a313-9abcbe0c5aa8" width="20%" />
+
+4. Press the save button at your timing while it is displaying the stream. The snapshot will be saved as long as the stream shows up, or the connection works correctly.
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/555646a8-293b-4118-af02-5e7c0c2c5ee4" width="20%" />
+
+5. Close the app and go to Photos App to find the snapshot.
+
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/2a1d1393-152a-45d7-904f-62eb68073d6a" width="20%" />
+
 
