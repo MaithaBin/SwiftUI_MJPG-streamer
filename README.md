@@ -5,6 +5,8 @@
 ## Overview
 SwiftUI_MJPG-streamer is the code that connects MJPG-streamer running on Debian and saves the snapshot into the Photos App at your timing.
 
+<img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/f94bf905-7a0c-4107-b229-6ac0babbb6c6" width="100%" />
+
 ## Development Environment
 ### Software
 - MJPG-streamer : https://github.com/jacksonliam/mjpg-streamer
