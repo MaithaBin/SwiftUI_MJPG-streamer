@@ -9,6 +9,7 @@ import SwiftUI
 import WebKit
 
 struct ContentView: View {
+    @ObservedObject var fileio = FileIO()
     @State var ipAdress:String = ""
     @FocusState var isActive:Bool
     @State var uiImage: UIImage? = nil
@@ -59,6 +60,7 @@ struct ContentView: View {
                     streamURL = "http://\(ipAdress):8080/?action=stream"
                     snapshotURL = "http://\(ipAdress):8080/?action=snapshot"
                     isConnected = isURLValid(inputURL: snapshotURL)
+                    fileio.createImgFolder()
                 } label: {
                     Text("Connect")
                         .font(.system(size: 24))
@@ -74,6 +76,7 @@ struct ContentView: View {
             }
             
             // --- Save Button --- //
+            // wanna change like you can get png file every x sec or min
             Button {
                 if isConnected {
                     saveImage()
@@ -115,9 +118,10 @@ struct ContentView: View {
                         // The data would be valid if the USB camera module
                         // connects and works properly.
                         if let data = data {
-                            NSLog("Succeed to get data.")
+                            NSLog("Succeess!The data was saved.")
                             uiImage = UIImage(data: data)
-                            UIImageWriteToSavedPhotosAlbum(uiImage!, nil, nil, nil)
+                            fileio.saveImgFile(img: uiImage!)
+                            //UIImageWriteToSavedPhotosAlbum(uiImage!, nil, nil, nil)
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                         } else {
                             // Data might be nil.
