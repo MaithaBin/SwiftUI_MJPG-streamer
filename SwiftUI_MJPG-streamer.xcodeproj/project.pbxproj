@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845B04652B4FBA3B00DBAB78 /* URLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B04642B4FBA3B00DBAB78 /* URLModel.swift */; };
 		847A2E332B4D661F0022D0D5 /* FileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A2E322B4D661F0022D0D5 /* FileIO.swift */; };
 		84A0DF022B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0DF012B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift */; };
 		84A0DF042B46590100EC7BE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0DF032B46590100EC7BE0 /* ContentView.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845B04642B4FBA3B00DBAB78 /* URLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLModel.swift; sourceTree = "<group>"; };
 		847A2E322B4D661F0022D0D5 /* FileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileIO.swift; sourceTree = "<group>"; };
 		847A2E342B4D79890022D0D5 /* SwiftUI-MJPG-streamer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-MJPG-streamer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		84A0DEFE2B46590100EC7BE0 /* SwiftUI_MJPG-streamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI_MJPG-streamer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +37,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845B04662B4FC06300DBAB78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E322B4D661F0022D0D5 /* FileIO.swift */,
+				845B04642B4FBA3B00DBAB78 /* URLModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84A0DEF52B46590000EC7BE0 = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +68,7 @@
 				847A2E342B4D79890022D0D5 /* SwiftUI-MJPG-streamer-Info.plist */,
 				84A0DF012B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift */,
 				84A0DF032B46590100EC7BE0 /* ContentView.swift */,
-				847A2E322B4D661F0022D0D5 /* FileIO.swift */,
+				845B04662B4FC06300DBAB78 /* Model */,
 				84A0DF052B46590100EC7BE0 /* Assets.xcassets */,
 				84A0DF072B46590100EC7BE0 /* Preview Content */,
 			);
@@ -145,6 +156,7 @@
 				847A2E332B4D661F0022D0D5 /* FileIO.swift in Sources */,
 				84A0DF042B46590100EC7BE0 /* ContentView.swift in Sources */,
 				84A0DF022B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift in Sources */,
+				845B04652B4FBA3B00DBAB78 /* URLModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

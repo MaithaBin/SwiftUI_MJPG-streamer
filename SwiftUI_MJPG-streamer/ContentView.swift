@@ -9,11 +9,10 @@ import SwiftUI
 import WebKit
 
 struct ContentView: View {
-    @ObservedObject var fileio = FileIO()
+    @ObservedObject var urlModel = URLModel()
     @State var shootingInterval = "1"
     @State var ipAdress:String = ""
     @FocusState var isActive:Bool
-    @State var uiImage: UIImage? = nil
     @State var streamURL = ""
     @State var snapshotURL = ""
     @State var isConnected = false
@@ -90,7 +89,7 @@ struct ContentView: View {
                 Button {
                     streamURL = "http://\(ipAdress):8080/?action=stream"
                     snapshotURL = "http://\(ipAdress):8080/?action=snapshot"
-                    isConnected = isURLValid(inputURL: snapshotURL)
+                    isConnected = urlModel.isURLValid(inputURL: snapshotURL)
                 } label: {
                     Text("Connect")
                         .font(.system(size: 24))
@@ -120,8 +119,10 @@ struct ContentView: View {
                         shootingInterval = "1"
                     }
                     timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(shootingInterval)!, repeats: true) { _ in
-                        saveImage()
+                        urlModel.saveURLAsImage(imgURL: snapshotURL)
                     }
+                } else {
+                    // do nothing.
                 }
             } label: {
                 Text(textButton)
@@ -131,50 +132,6 @@ struct ContentView: View {
                     .foregroundColor(Color.white)
             }
         }
-    }
-    
-    /// Checks if  the input string is valid.
-    func isURLValid(inputURL:String) -> Bool {
-        // The URL you input will be invalid
-        // if it containes full-width characters.
-        guard let url = URL(string: inputURL) else {
-            NSLog("URL Error")
-            return false
-        }
-        return true
-    }
-    
-    /// Captures the snapshot and saves it into Photos App.
-    /// - Note: Please call this method after the isURLValid() method because runtime error might occure if the URL is invalid.
-    func saveImage() {
-        let request = URLRequest(url: URL(string: snapshotURL)!)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            // Checks for errors
-            if let error = error {
-                NSLog("Error: \(error)")
-                return
-            } else {
-                // Checks if the response is correct.
-                if let response = response as? HTTPURLResponse {
-                    if response.statusCode == 200 {
-                        // The data would be valid if the USB camera module
-                        // connects and works properly.
-                        if let data = data {
-                            NSLog("Succeess!The data was saved.")
-                            uiImage = UIImage(data: data)
-                            fileio.createImgFolder()
-                            fileio.saveImgFile(img: uiImage!)
-                            UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        } else {
-                            // Data might be nil.
-                            NSLog("Error: Failed to obtain data.")
-                        }
-                    } else {
-                        NSLog("Error: The URL does not exist.")
-                    }
-                }
-            }
-        }.resume()
     }
 }
 
