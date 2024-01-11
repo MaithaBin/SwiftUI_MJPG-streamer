@@ -1,4 +1,4 @@
-# SwiftUI_MJPG-streamer(Security Camera)
+# SwiftUI_MJPG-streamer
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.9-Orange?style=flat-square)
 <img src="https://img.shields.io/badge/-Debian-A81D33.svg?logo=debian&style=flat">
 
