@@ -8,8 +8,8 @@ import SwiftUI
 import Foundation
 
 class URLModel: ObservableObject {
-    @Published var fileio = FileIO()
-    @Published var uiImage: UIImage? = nil
+    private var fileio = FileIO()
+    private var uiImage: UIImage? = nil
     /// Checks if  the input string is valid.
     func isURLValid(inputURL:String) -> Bool {
         // The URL you input will be invalid

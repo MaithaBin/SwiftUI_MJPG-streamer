@@ -1,14 +1,13 @@
 //
-//  ContentView.swift
-//  SwiftUI_MJPEG-streamer
+//  HomeView.swift
+//  SwiftUI_MJPG-streamer
 //
-//  Created by MaithBin on 2024/01/04.
+//  Created by admin on 2024/01/11.
 //
 
 import SwiftUI
-import WebKit
 
-struct ContentView: View {
+struct HomeView: View {
     @ObservedObject var urlModel = URLModel()
     @State var shootingInterval = "1"
     @State var ipAdress:String = ""
@@ -25,7 +24,7 @@ struct ContentView: View {
         VStack {
             // --- Header --- //
             HStack {
-                Text("SwiftUI MJPG-streamer ")
+                Text("SwiftUI MJPG-streamer")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
             }
             .frame(width: 400,height: 50)
@@ -107,20 +106,9 @@ struct ContentView: View {
             // --- Start/Stop Button --- //
             Button {
                 if isStartedCapturing {
-                    isStartedCapturing = false
-                    textButton = "Start"
-                    buttonColor = Color.blue
-                    timer!.invalidate()
+                    stopShooting()
                 } else if isConnected && !isStartedCapturing {
-                    isStartedCapturing = true
-                    textButton = "Stop"
-                    buttonColor = Color.red
-                    if shootingInterval == "" {
-                        shootingInterval = "1"
-                    }
-                    timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(shootingInterval)!, repeats: true) { _ in
-                        urlModel.saveURLAsImage(imgURL: snapshotURL)
-                    }
+                    startShooting()
                 } else {
                     // do nothing.
                 }
@@ -133,28 +121,28 @@ struct ContentView: View {
             }
         }
     }
-}
-
-struct StreamView: UIViewRepresentable {
-    let url: String
     
-    /// Creates the view object.
-    /// This method is only invoked once.
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+    private func startShooting() {
+        isStartedCapturing = true
+        textButton = "Stop"
+        buttonColor = Color.red
+        if shootingInterval == "" {
+            shootingInterval = "1"
+        }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(shootingInterval)!, repeats: true) { _ in
+            urlModel.saveURLAsImage(imgURL: snapshotURL)
+        }
     }
     
-    /// Updates the view object.
-    /// This method is called and updates the view when the current state changes.
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        let request = URLRequest(url: url)
-        uiView.load(request)
+    private func stopShooting() {
+        isStartedCapturing = false
+        textButton = "Start"
+        buttonColor = Color.blue
+        timer!.invalidate()
     }
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
