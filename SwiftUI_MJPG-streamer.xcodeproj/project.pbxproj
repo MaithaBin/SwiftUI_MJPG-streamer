@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845B04652B4FBA3B00DBAB78 /* URLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B04642B4FBA3B00DBAB78 /* URLModel.swift */; };
+		8466AD522B4FC57100C69942 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466AD512B4FC57100C69942 /* StreamView.swift */; };
+		8466AD542B4FC5D500C69942 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466AD532B4FC5D500C69942 /* HomeView.swift */; };
+		847A2E332B4D661F0022D0D5 /* FileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A2E322B4D661F0022D0D5 /* FileIO.swift */; };
 		84A0DF022B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0DF012B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift */; };
-		84A0DF042B46590100EC7BE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0DF032B46590100EC7BE0 /* ContentView.swift */; };
 		84A0DF062B46590100EC7BE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A0DF052B46590100EC7BE0 /* Assets.xcassets */; };
 		84A0DF092B46590100EC7BE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A0DF082B46590100EC7BE0 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845B04642B4FBA3B00DBAB78 /* URLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLModel.swift; sourceTree = "<group>"; };
+		8466AD512B4FC57100C69942 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		8466AD532B4FC5D500C69942 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		847A2E322B4D661F0022D0D5 /* FileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileIO.swift; sourceTree = "<group>"; };
+		847A2E342B4D79890022D0D5 /* SwiftUI-MJPG-streamer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-MJPG-streamer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		84A0DEFE2B46590100EC7BE0 /* SwiftUI_MJPG-streamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI_MJPG-streamer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A0DF012B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI_MJPG-streamerApp.swift"; sourceTree = "<group>"; };
-		84A0DF032B46590100EC7BE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84A0DF052B46590100EC7BE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84A0DF082B46590100EC7BE0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +39,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845B04662B4FC06300DBAB78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E322B4D661F0022D0D5 /* FileIO.swift */,
+				845B04642B4FBA3B00DBAB78 /* URLModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8466AD502B4FC54500C69942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8466AD532B4FC5D500C69942 /* HomeView.swift */,
+				8466AD512B4FC57100C69942 /* StreamView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84A0DEF52B46590000EC7BE0 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +76,10 @@
 		84A0DF002B46590100EC7BE0 /* SwiftUI_MJPG-streamer */ = {
 			isa = PBXGroup;
 			children = (
+				847A2E342B4D79890022D0D5 /* SwiftUI-MJPG-streamer-Info.plist */,
 				84A0DF012B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift */,
-				84A0DF032B46590100EC7BE0 /* ContentView.swift */,
+				8466AD502B4FC54500C69942 /* View */,
+				845B04662B4FC06300DBAB78 /* Model */,
 				84A0DF052B46590100EC7BE0 /* Assets.xcassets */,
 				84A0DF072B46590100EC7BE0 /* Preview Content */,
 			);
@@ -137,8 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A0DF042B46590100EC7BE0 /* ContentView.swift in Sources */,
+				847A2E332B4D661F0022D0D5 /* FileIO.swift in Sources */,
 				84A0DF022B46590100EC7BE0 /* SwiftUI_MJPG-streamerApp.swift in Sources */,
+				8466AD542B4FC5D500C69942 /* HomeView.swift in Sources */,
+				8466AD522B4FC57100C69942 /* StreamView.swift in Sources */,
+				845B04652B4FBA3B00DBAB78 /* URLModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +305,8 @@
 				DEVELOPMENT_TEAM = 49YQK5886F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-MJPG-streamer-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Saves every screenshot";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -307,6 +339,8 @@
 				DEVELOPMENT_TEAM = 49YQK5886F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-MJPG-streamer-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Saves every screenshot";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
