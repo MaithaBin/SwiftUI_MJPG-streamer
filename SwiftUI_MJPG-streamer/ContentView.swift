@@ -10,12 +10,17 @@ import WebKit
 
 struct ContentView: View {
     @ObservedObject var fileio = FileIO()
+    @State var shootingInterval = "1"
     @State var ipAdress:String = ""
     @FocusState var isActive:Bool
     @State var uiImage: UIImage? = nil
     @State var streamURL = ""
     @State var snapshotURL = ""
     @State var isConnected = false
+    @State var textButton = "Start"
+    @State var buttonColor = Color.blue
+    @State var isStartedCapturing = false
+    @State var timer :Timer?
     
     var body: some View {
         VStack {
@@ -27,8 +32,34 @@ struct ContentView: View {
             .frame(width: 400,height: 50)
             .background(Color.blue)
             .foregroundColor(Color.white)
+            
+            // --- Input Form: Shooting Interval --- //
+            HStack {
+                Spacer()
+                    .frame(width:10)
+                Text("Shooting Interval")
+                    .font(.system(size: 24))
+                Spacer()
+            }
+            Spacer()
+                .frame(height:0)
+            HStack {
+                Spacer()
+                    .frame(width:10)
+                TextField("", text: $shootingInterval)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .multilineTextAlignment(TextAlignment.trailing)
+                    .frame(width: 250,height: 40)
+                    .keyboardType(.numberPad)
+                    .border(Color.black, width: 0.5)
+                    .font(.system(size: 24))
+                    .focused($isActive)
+                Text("sec")
+                    .font(.system(size: 24))
+                Spacer()
+            }
 
-            // --- Input Form --- //
+            // --- Input Form: IP Adress --- //
             HStack {
                 Spacer()
                     .frame(width:10)
@@ -41,7 +72,7 @@ struct ContentView: View {
             HStack {
                 Spacer()
                     .frame(width:10)
-                TextField("Input here.", text: $ipAdress)
+                TextField("input here.", text: $ipAdress)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 250,height: 40)
                     .keyboardType(.decimalPad)
@@ -60,7 +91,6 @@ struct ContentView: View {
                     streamURL = "http://\(ipAdress):8080/?action=stream"
                     snapshotURL = "http://\(ipAdress):8080/?action=snapshot"
                     isConnected = isURLValid(inputURL: snapshotURL)
-                    fileio.createImgFolder()
                 } label: {
                     Text("Connect")
                         .font(.system(size: 24))
@@ -75,16 +105,28 @@ struct ContentView: View {
                 Spacer()
             }
             
-            // --- Save Button --- //
-            // wanna change like you can get png file every x sec or min
+            // --- Start/Stop Button --- //
             Button {
-                if isConnected {
-                    saveImage()
+                if isStartedCapturing {
+                    isStartedCapturing = false
+                    textButton = "Start"
+                    buttonColor = Color.blue
+                    timer!.invalidate()
+                } else if isConnected && !isStartedCapturing {
+                    isStartedCapturing = true
+                    textButton = "Stop"
+                    buttonColor = Color.red
+                    if shootingInterval == "" {
+                        shootingInterval = "1"
+                    }
+                    timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(shootingInterval)!, repeats: true) { _ in
+                        saveImage()
+                    }
                 }
             } label: {
-                Text("Save")
+                Text(textButton)
                     .frame(width: 400,height: 70)
-                    .background(Color.blue)
+                    .background(buttonColor)
                     .font(.system(size: 30))
                     .foregroundColor(Color.white)
             }
@@ -120,8 +162,8 @@ struct ContentView: View {
                         if let data = data {
                             NSLog("Succeess!The data was saved.")
                             uiImage = UIImage(data: data)
+                            fileio.createImgFolder()
                             fileio.saveImgFile(img: uiImage!)
-                            //UIImageWriteToSavedPhotosAlbum(uiImage!, nil, nil, nil)
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                         } else {
                             // Data might be nil.
