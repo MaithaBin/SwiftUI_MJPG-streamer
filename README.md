@@ -9,7 +9,7 @@
 
 <img src="https://github.com/MaithaBin/SwiftUI_MJPG-streamer/assets/141325017/f94bf905-7a0c-4107-b229-6ac0babbb6c6" width="100%" />
 
-## Development Environment
+## Development Environments
 ### Software
 - MJPG-streamer : https://github.com/jacksonliam/mjpg-streamer
 
