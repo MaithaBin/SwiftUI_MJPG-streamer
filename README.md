@@ -3,7 +3,7 @@
 <img src="https://img.shields.io/badge/-Debian-A81D33.svg?logo=debian&style=flat">
 
 ## Overview
-- SwiftUI_MJPG-streamer(Security Camera) is the program that connects MJPG-streamer running on Debian and saves the snapshot into the today's date folder in Files App every the shooting interval you set. When you press the start butotn after connecting to MJPG-streamer, shooting will begin. On the other hand, if you would like to stop shooting, tap the stop button at your timing. Also shooting resumes when you press the start button again. 
+- SwiftUI_MJPG-streamer(Monitoring Camera) is the program that connects MJPG-streamer running on Debian and saves the snapshot into the today's date folder in Files App every the shooting interval you set. When you press the start butotn after connecting to MJPG-streamer, shooting will begin. On the other hand, if you would like to stop shooting, tap the stop button at your timing. Also shooting resumes when you press the start button again. 
 - Snapshots are saved as png files in order that you may compress and uncompress them without any loss of quality.
 - This application helps you to store smaller amount data than mp4 data. It intends for the needs that you would like to capture a specific scene with small size and not high resolution.
 
